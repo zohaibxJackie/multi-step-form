@@ -1,23 +1,31 @@
-import React from 'react'
 
 const FirstPage = () => {
   return (
-    <main>
-      <h1>Personal info</h1>
-      <p>Please provide your name, email address, and phone number.</p>
-      <form>
-        <label htmlFor="inp1">name</label>
-        <input type="text" id='inp1' placeholder='e.g. Stephen King' />
+    <main className="flex flex-grow">
+      <div className="w-[80%] mx-auto mt-20">
+        <h1 className="font-fw-700 text-3xl text-marine-blue">Personal info</h1>
+        <p className="text-Cool-gray">Please provide your name, email address, and phone number.</p>
+        <form className="flex flex-col justify-around gap-[1.3rem] mt-8">
+          <div className="flex flex-col">
+            <label htmlFor="inp1" className="uppercase text-marine-blue font-fw-500">name</label>
+            <input type="text" id='inp1' className="border py-2 pl-4 rounded-md text-marine-blue font-fw-500 outline-marine-blue" placeholder='e.g. Stephen King' />
+          </div>
 
-        <label htmlFor="inp2">Email Address</label>
-        <input type="email" id='inp2' placeholder='e.g. stephenking@lorem.com' />
+          <div className="flex flex-col">
+            <label htmlFor="inp2" className="uppercase text-marine-blue font-fw-500">Email Address</label>
+            <input type="email" id='inp2' className="border py-2 pl-4 rounded-md text-marine-blue font-fw-500 outline-marine-blue" placeholder='e.g. stephenking@lorem.com' />
+          </div>
 
-        <label htmlFor="inp3">phone number</label>
-        <input type="number" id='inp3' placeholder='e.g. +1 234 567 890' />
-      </form>
+          <div className="flex flex-col">
+            <label htmlFor="inp3" className="uppercase text-marine-blue font-fw-500">phone number</label>
+            <input type="number" id='inp3' className="border py-2 pl-4 rounded-md text-marine-blue font-fw-500 outline-marine-blue" placeholder='e.g. +1 234 567 890' />
+          </div>
 
-      <div>
-        <button>Next Step</button>
+          <div className="flex justify-end mt-16 mb-8">
+            <button className="bg-marine-blue text-white py-2 px-4 rounded-md">Next Step</button>
+          </div>
+        </form>
+
       </div>
     </main>
   )

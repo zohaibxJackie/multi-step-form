@@ -6,8 +6,8 @@ import FourthPage from "./components/FourthPage";
 
 const App = () => {
   return (
-    <div className='font-ff-main'>
-      <div className="flex max-w-[80%] bg-red-700 mx-auto">
+    <div className='font-ff-main mt-8'>
+      <div className="flex max-w-[70%] p-2 mx-auto border rounded shadow-md h-[585px]">
         <LeftPanel />
         <FirstPage />
       </div>
