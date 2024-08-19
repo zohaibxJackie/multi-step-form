@@ -13,9 +13,9 @@ const App = () => {
         <LeftPanel />
         <Routes>
           <Route index element={<FirstPage />} />
-          <Route path="/select-plan" element={<SecondPage />} />
-          <Route path="/add-ons" element={<ThirdPage />} />
-          <Route path="/final-step" element={<FourthPage />} />
+          <Route path="select-plan" element={<SecondPage />} />
+          <Route path="add-ons" element={<ThirdPage />} />
+          <Route path="final-step" element={<FourthPage />} />
         </Routes>
       </div>
     </div>

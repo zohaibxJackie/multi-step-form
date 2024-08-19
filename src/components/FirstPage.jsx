@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom"
 
 const FirstPage = () => {
   return (
     <main className="flex flex-grow">
-      <div className="w-[80%] mx-auto mt-20">
+      <div className="w-[80%] mx-auto mt-20 relative">
         <h1 className="font-fw-700 text-3xl text-marine-blue">Personal info</h1>
         <p className="text-Cool-gray">Please provide your name, email address, and phone number.</p>
         <form className="flex flex-col justify-around gap-[1.3rem] mt-8">
@@ -21,9 +22,14 @@ const FirstPage = () => {
             <input type="number" id='inp3' className="border py-2 pl-4 rounded-md text-marine-blue font-fw-500 outline-marine-blue" placeholder='e.g. +1 234 567 890' />
           </div>
 
-          <div className="flex justify-end mt-16 mb-8">
-            <button className="bg-marine-blue text-white py-2 px-4 rounded-md">Next Step</button>
+          <div className="absolute bottom-4 w-full">
+            <div className="flex justify-end ">
+              <Link to={'/select-plan'}>
+                <button className="bg-marine-blue text-white py-2 px-4 rounded-md">Next Step</button>
+              </Link>
+            </div>
           </div>
+
         </form>
 
       </div>
