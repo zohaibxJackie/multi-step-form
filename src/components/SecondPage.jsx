@@ -49,7 +49,7 @@ const SecondPage = () => {
         {/* choose plan */}
         <div className='bg-Alabaster p-3 flex justify-center items-center gap-3'>
           <label htmlFor="planBox">monthly</label>
-          <input type="checkbox" id='planBox' className='w-10 h-6 relative cursor-pointer appearance-none bg-marine-blue align-middle before:content-["⚪"] before:absolute before:top-[2px] before:right-[17px] before:block before:translate-x-0 checked:before:translate-x-full checked:before:content-["⚪"] rounded-full inline-block' />
+          <input type="checkbox" id='planBox' className='w-[2.73rem] h-6 relative cursor-pointer appearance-none bg-marine-blue align-middle before:content-["⚪"] before:absolute before:block before:translate-x-0 checked:before:translate-x-full checked:before:content-["⚪"] rounded-full inline-block' />
           <label htmlFor="planBox">yearly</label>
         </div>
 
