@@ -47,6 +47,7 @@ export default {
       },
       borderColor: {
         'Pastel-blue': 'hsl(228, 100%, 84%)',
+        'marine-blue': 'hsl(213, 96%, 18%)',
       }
     },
   },
