@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LeftPanel from "./components/LeftPanel";
 import FirstPage from "./components/FirstPage";
 import SecondPage from "./components/SecondPage";
@@ -12,11 +12,15 @@ const App = () => {
 
   return (
     <div className='font-ff-main mt-8'>
-      <div className="flex max-w-[70%] p-2 mx-auto border rounded shadow-md h-[585px]">
+      <div className="flex w-[70%] md:w-[100%] lg:max-[90%] p-2 mx-auto border rounded shadow-md h-[585px]">
         <LeftPanel />
         <Routes>
           <Route index element={<FirstPage />} />
-          <Route path="select-plan" element={<SecondPage price={price} setPrice={setPrice} />} />
+          <Route path="select-plan" 
+          element={<SecondPage 
+            setPrice={setPrice}
+            />} 
+          />
           <Route path="add-ons" element={<ThirdPage />} />
           <Route path="final-step" element={<FourthPage />} />
         </Routes>
