@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className='font-ff-main mt-8'>
-      <div className="flex w-[70%] md:w-[100%] lg:max-[90%] p-2 mx-auto border rounded shadow-md h-[585px]">
+      <div className="flex largeScreen:max-w-[70%] p-2 mx-auto border rounded shadow-md h-[585px] md:!max-w-[100%] lg:max-w-[90%] md:flex-col">
         <LeftPanel />
         <Routes>
           <Route index element={<FirstPage />} />

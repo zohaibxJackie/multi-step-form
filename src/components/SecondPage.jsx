@@ -86,7 +86,7 @@ const SecondPage = ({setPrice}) => {
         {/* cart section */}
         <div className='flex gap-4 my-8'>
           {/* cart one */}
-          <button onClick={() => handlePrice('cart1')} className={`flex flex-col gap-10 p-3 flex-grow rounded-md ${activeBg === 9 || activeBg === 90 ? 'bg-Pastel-blue' : 'bg-white'} outline-marine-blue border-[2px] border-solid ${activeBg === 9 || activeBg === 90 ? 'border-marine-blue' : 'border-transparent'} hover:border-marine-blue`}>
+          <button onClick={() => handlePrice('cart1')} className={`flex flex-col gap-10 p-3 flex-1 rounded-md ${activeBg === 9 || activeBg === 90 ? 'bg-Pastel-blue' : 'bg-white'} outline-marine-blue border-[1.5px] border-solid ${activeBg === 9 || activeBg === 90 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue`}>
             <div>
               <img src={iconArcade} alt="Arcade icon" />
             </div>
@@ -98,7 +98,7 @@ const SecondPage = ({setPrice}) => {
           </button>
 
           {/* cart two */}
-          <button onClick={() => handlePrice('cart2')} className={`flex flex-col gap-10 p-3 flex-grow border-[2px] rounded-md ${activeBg === 12 || activeBg === 120 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 12 || activeBg === 120 ? 'border-marine-blue' : 'border-transparent'} hover:border-marine-blue`}>
+          <button onClick={() => handlePrice('cart2')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 12 || activeBg === 120 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 12 || activeBg === 120 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue`}>
             <div>
               <img src={iconAdvanced} alt="Arcade icon" />
             </div>
@@ -110,7 +110,7 @@ const SecondPage = ({setPrice}) => {
           </button>
 
           {/* cart three */}
-          <button onClick={() => handlePrice('cart3')} className={`flex flex-col gap-10 p-3 flex-grow border-[2px] rounded-md ${activeBg === 15 || activeBg === 150 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 15 || activeBg === 150 ? 'border-marine-blue' : 'border-transparent'} hover:border-marine-blue`}>
+          <button onClick={() => handlePrice('cart3')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 15 || activeBg === 150 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 15 || activeBg === 150 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue`}>
             <div>
               <img src={iconPro} alt="Arcade icon" />
             </div>
