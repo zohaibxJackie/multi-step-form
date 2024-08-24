@@ -77,16 +77,16 @@ const SecondPage = ({setPrice}) => {
   }
 
   return (
-    <main className="flex flex-grow">
-      <div className="w-[80%] mx-auto mt-20 relative">
+    <main className="flex flex-grow md:w-full md:absolute md:top-[18%] md:left-[0%] md:bg-white md:rounded-md md:shadow-md">
+      <div className="w-[80%] mx-auto mt-20 md:mt-4 relative md:static">
         <h1 className="font-fw-700 text-3xl text-marine-blue">Select your plan</h1>
         <p className="text-Cool-gray">You have the option of monthly or yearly billing.</p>
 
 
         {/* cart section */}
-        <div className='flex gap-4 my-8'>
+        <div className='flex gap-4 my-8 md:flex-col'>
           {/* cart one */}
-          <button onClick={() => handlePrice('cart1')} className={`flex flex-col gap-10 p-3 flex-1 rounded-md ${activeBg === 9 || activeBg === 90 ? 'bg-Pastel-blue' : 'bg-white'} outline-marine-blue border-[1.5px] border-solid ${activeBg === 9 || activeBg === 90 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue`}>
+          <button onClick={() => handlePrice('cart1')} className={`flex flex-col gap-10 p-3 flex-1 rounded-md ${activeBg === 9 || activeBg === 90 ? 'bg-Pastel-blue' : 'bg-white'} outline-marine-blue border-[1.5px] border-solid ${activeBg === 9 || activeBg === 90 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue md:flex-row`}>
             <div>
               <img src={iconArcade} alt="Arcade icon" />
             </div>
@@ -98,7 +98,7 @@ const SecondPage = ({setPrice}) => {
           </button>
 
           {/* cart two */}
-          <button onClick={() => handlePrice('cart2')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 12 || activeBg === 120 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 12 || activeBg === 120 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue`}>
+          <button onClick={() => handlePrice('cart2')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 12 || activeBg === 120 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 12 || activeBg === 120 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue md:flex-row`}>
             <div>
               <img src={iconAdvanced} alt="Arcade icon" />
             </div>
@@ -110,7 +110,7 @@ const SecondPage = ({setPrice}) => {
           </button>
 
           {/* cart three */}
-          <button onClick={() => handlePrice('cart3')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 15 || activeBg === 150 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 15 || activeBg === 150 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue`}>
+          <button onClick={() => handlePrice('cart3')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 15 || activeBg === 150 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 15 || activeBg === 150 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue md:flex-row`}>
             <div>
               <img src={iconPro} alt="Arcade icon" />
             </div>
@@ -135,8 +135,8 @@ const SecondPage = ({setPrice}) => {
         </div>
 
         {/* navigation buttons */}
-        <div className="absolute bottom-4 w-full">
-          <div className="flex justify-between ">
+        <div className="absolute md:fixed md:left-0 md:bottom-0 bottom-4 w-full md:bg-white md:p-4">
+          <div className="flex justify-between">
             <Link to={'/'}>
               <button className="py-2 px-4 rounded-md text-Cool-gray">Go Back</button>
             </Link>

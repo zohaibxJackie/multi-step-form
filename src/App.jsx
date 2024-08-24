@@ -11,8 +11,8 @@ const App = () => {
   const [price, setPrice] = useState(9);
 
   return (
-    <div className='font-ff-main mt-8'>
-      <div className="flex largeScreen:max-w-[70%] p-2 mx-auto border rounded shadow-md h-[585px] md:!max-w-[100%] lg:max-w-[90%] md:flex-col">
+    <div className='font-ff-main pt-8 md:pt-0 bg-Magnolia min-h-[100vh]'>
+      <div className="flex md:relative largeScreen:max-w-[70%] p-2 md:p-0 mx-auto bg-white md:bg-transparent border rounded shadow-md h-[585px] md:!max-w-[100%] lg:!max-w-[90%] 2xl:max-w-[70%] md:flex-col md:shadow-none md:border-0">
         <LeftPanel />
         <Routes>
           <Route index element={<FirstPage />} />

@@ -74,7 +74,8 @@ export default {
         'sm': {'max': '639px'},
         // => @media (max-width: 639px) { ... }
         'largeScreen': {'min': '1024px'}
-      }
+      },
+      
     },
   },
   plugins: [],
