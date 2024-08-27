@@ -9,6 +9,7 @@ import FourthPage from "./components/FourthPage";
 const App = () => {
   const [price, setPrice] = useState(9);
   const [activeButtonBg, setActiveButtonBg] = useState(null);
+  const [yearly, setYearly] = useState(false);
   const location = useLocation();
   
   useEffect(() => {
