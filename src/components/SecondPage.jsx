@@ -3,7 +3,7 @@ import iconAdvanced from '../assets/images/icon-advanced.svg'
 import iconPro from '../assets/images/icon-pro.svg'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-const SecondPage = ({setPrice}) => {
+const SecondPage = ({setPrice, setYearly}) => {
   // monthly and yearly price variables
   const [arcadePrice, setArcadePrice] = useState(9);
   const [advancedPrice, setAdvancedPrice] = useState(12);
@@ -53,6 +53,7 @@ const SecondPage = ({setPrice}) => {
       setPrice(90);
       setActiveBg(90);
       setFreeOffer(true);
+      setYearly(prev => !prev);
     } else {
       setArcadePrice(9);
       setAdvancedPrice(12);
@@ -60,6 +61,7 @@ const SecondPage = ({setPrice}) => {
       setPrice(9);
       setActiveBg(9); 
       setFreeOffer(false);
+      setYearly(prev => !prev);
     }
   }, [isChecked])
 
@@ -77,7 +79,7 @@ const SecondPage = ({setPrice}) => {
   }
 
   return (
-    <main className="flex flex-grow md:w-full md:absolute md:top-[18%] md:left-[0%] md:bg-white md:rounded-md md:shadow-md">
+    <main className="flex flex-grow md:w-full md:absolute md:top-[18%] md:left-[0%] h-400:relative md:bg-white md:rounded-md md:shadow-md">
       <div className="w-[80%] mx-auto mt-20 md:mt-4 relative md:static">
         <h1 className="font-fw-700 text-3xl text-marine-blue">Select your plan</h1>
         <p className="text-Cool-gray">You have the option of monthly or yearly billing.</p>
@@ -135,7 +137,7 @@ const SecondPage = ({setPrice}) => {
         </div>
 
         {/* navigation buttons */}
-        <div className="absolute md:fixed md:left-0 md:bottom-0 bottom-4 w-full md:bg-white md:p-4">
+        <div className="absolute md:fixed sm:!relative md:left-0 md:bottom-0 bottom-4 w-full md:bg-white md:p-4">
           <div className="flex justify-between">
             <Link to={'/'}>
               <button className="py-2 px-4 rounded-md text-Cool-gray">Go Back</button>

@@ -28,9 +28,10 @@ const App = () => {
           <Route path="select-plan" 
           element={<SecondPage 
             setPrice={setPrice}
+            setYearly={setYearly}
             />} 
           />
-          <Route path="add-ons" element={<ThirdPage />} />
+          <Route path="add-ons" element={<ThirdPage yearly={yearly} />} />
           <Route path="final-step" element={<FourthPage />} />
         </Routes>
       </div>

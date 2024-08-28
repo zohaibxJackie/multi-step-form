@@ -9,7 +9,7 @@ export default {
       backgroundColor: {
         'marine-blue': 'hsl(213, 96%, 18%)',
         'Purplish-blue': 'hsl(243, 100%, 62%)',
-        'Pastel-blue': 'hsl(228, 100%, 84%)',
+        'Pastel-blue': 'hsl(228, 100%, 96%)',
         'Light-blue': 'hsl(206, 94%, 87%)',
         'Strawberry-red': 'hsl(354, 84%, 57%)',
         'Cool-gray': 'hsl(231, 11%, 63%)',
@@ -71,9 +71,12 @@ export default {
         'md': {'max': '767px'},
         // => @media (max-width: 767px) { ... }
   
-        'sm': {'max': '639px'},
+        'sm': {'max': '372px'},
         // => @media (max-width: 639px) { ... }
-        'largeScreen': {'min': '1024px'}
+        'largeScreen': {'min': '1024px'},
+        // height query for second page only
+        'h-400': { 'raw': '(max-height: 634px)' },
+
       },
       
     },
