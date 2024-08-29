@@ -1,19 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const ThirdPage = (props) => {
-  const {yearly, activeBgBtn1, activeBgBtn2, activeBgBtn3, setActiveBgBtn1, setActiveBgBtn2, setActiveBgBtn3} = props;
+  const {
+    yearly, 
+    activeBgBtn1, 
+    activeBgBtn2, 
+    activeBgBtn3, 
+    setActiveBgBtn1, 
+    setActiveBgBtn2, 
+    setActiveBgBtn3,
+    updatePrice,
+    totalPrice
+  } = props;
 
   const boxCheck = (btn) => {
+    let price = 0;
+    let isSelected = false;
+
     if (btn === 'chk1') {
-      setActiveBgBtn1((prev) => !prev);
+      price = yearly ? 10 : 1;
+      isSelected = !activeBgBtn1;
+      setActiveBgBtn1(isSelected);
     } else if (btn === 'chk2') {
-      setActiveBgBtn2((prev) => !prev);
+      price = yearly ? 20 : 2;
+      isSelected = !activeBgBtn2;
+      setActiveBgBtn2(isSelected);
     } else if (btn === 'chk3') {
-      setActiveBgBtn3((prev) => !prev);
+      price = yearly ? 20 : 2;
+      isSelected = !activeBgBtn3;
+      setActiveBgBtn3(isSelected);
     } else {
       console.error('Something went wrong');
+      return;
     }
+
+    updatePrice(price, isSelected);
   };
 
   const handleCheckboxClick = (e, btn) => {
@@ -49,7 +71,7 @@ const ThirdPage = (props) => {
               </div>
             </div>
             <div className="mr-6 text-Purplish-blue">
-              <p>+${`${yearly ? '10' : '1'}`}/mo</p>
+              <p>+${`${yearly ? '10' : '1'}`}/{yearly ? 'yr' : 'mo'}</p>
             </div>
           </button>
 
@@ -73,7 +95,7 @@ const ThirdPage = (props) => {
               </div>
             </div>
             <div className="mr-6 text-Purplish-blue">
-              <p>+${`${yearly ? '20' : '2'}`}/mo</p>
+              <p>+${`${yearly ? '20' : '2'}`}/{yearly ? 'yr' : 'mo'}</p>
             </div>
           </button>
 
@@ -97,7 +119,7 @@ const ThirdPage = (props) => {
               </div>
             </div>
             <div className="mr-6 text-Purplish-blue">
-              <p>+${`${yearly ? '20' : '2'}`}/mo</p>
+              <p>+${`${yearly ? '20' : '2'}`}/{yearly ? 'yr' : 'mo'}</p>
             </div>
           </button>
         </div>
@@ -106,7 +128,13 @@ const ThirdPage = (props) => {
         <div className="absolute md:fixed sm:!relative md:left-0 md:bottom-0 bottom-4 w-full md:bg-white md:p-4">
           <div className="flex justify-between">
             <Link to={'/select-plan'}>
-              <button className="py-2 px-4 rounded-md text-Cool-gray">Go Back</button>
+              <button className="py-2 px-4 rounded-md text-Cool-gray" onClick={() => {
+                 alert("Are you sure you want to go back? Everything will reset");
+                 setActiveBgBtn1(false) 
+                 setActiveBgBtn2(false)
+                 setActiveBgBtn3(false)
+                
+              }}>Go Back</button>
             </Link>
             <Link to={'/final-step'}>
               <button className="bg-marine-blue text-white py-2 px-4 rounded-md">Next Step</button>

@@ -4,7 +4,7 @@ import iconPro from '../assets/images/icon-pro.svg'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
-const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
+const SecondPage = ({setPrice, setYearly, setCurrentPlan, setTotalPrice, totalPrice}) => {
 
   // monthly and yearly price variables
   const [arcadePrice, setArcadePrice] = useState(9);
@@ -15,40 +15,29 @@ const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
 
   // with the help of this variable, we will activate the background on carts
   const [activeBg, setActiveBg] = useState(9);
-  
+ 
   //Render the free offer on yearly basis
   const [freeOffer, setFreeOffer] = useState(false);
 
   // set the monthly price, we will call other function for yearly
   const handlePrice = (e) => {
+    let selectedPrice = 0;
     if (e === 'cart1') {
-      setPrice(arcadePrice)
       // with the help of setCurrentPlan, we will render the title on the basis of plan chosen
       setCurrentPlan('Arcade')
-      if (activeBg === 9) {
-        setActiveBg(90)
-      } else {
-        setActiveBg(9);
-      }
-    }
-    if (e === 'cart2') {
+      selectedPrice = arcadePrice;
+      setActiveBg(activeBg === 9 ? 90 : 9)
+    } else if (e === 'cart2') {
       setCurrentPlan('Advanced')
-      setPrice(advancedPrice);
-      if (activeBg === 12) {
-        setActiveBg(120)
-      } else {
-        setActiveBg(12);
-      }
-    }
-    if (e === 'cart3') {
-      setPrice(proPrice);
+      selectedPrice = advancedPrice;
+      setActiveBg(activeBg === 12 ? 120 : 12)
+    } else if (e === 'cart3') {
       setCurrentPlan('Pro')
-      if (activeBg === 15) {
-        setActiveBg(150)
-      } else {
-        setActiveBg(15);
-      }
+      selectedPrice = proPrice;
+      setActiveBg(activeBg === 15 ? 150 : 15)
     }
+    setPrice(selectedPrice)
+    setTotalPrice(selectedPrice);
   }
 
   useEffect(() => {    
@@ -57,17 +46,19 @@ const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
       setAdvancedPrice(120);
       setProPrice(150);
       setPrice(90);
-      setActiveBg(90);
+      // setActiveBg(90);
       setFreeOffer(true);
       setYearly(prev => !prev);
+      setTotalPrice(prev => prev * 10)
     } else {
       setArcadePrice(9);
       setAdvancedPrice(12);
       setProPrice(15);
       setPrice(9);
-      setActiveBg(9); 
+      // setActiveBg(9); 
       setFreeOffer(false);
       setYearly(prev => !prev);
+      setTotalPrice(prev => prev / 10)
     }
   }, [isChecked])
 
@@ -84,6 +75,11 @@ const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
     setIsChecked(e.target.checked);
   }
 
+  useEffect(() => {
+    setTotalPrice(9);
+    setYearly(false);
+  }, [])
+
   return (
     <main className="flex flex-grow md:w-full md:absolute md:top-[18%] md:left-[0%] h-400:relative md:bg-white md:rounded-md md:shadow-md">
       <div className="w-[80%] mx-auto mt-20 md:mt-4 relative md:static">
@@ -94,7 +90,7 @@ const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
         {/* cart section */}
         <div className='flex gap-4 my-8 md:flex-col'>
           {/* cart one */}
-          <button onClick={() => handlePrice('cart1')} className={`flex flex-col gap-10 p-3 flex-1 rounded-md ${activeBg === 9 || activeBg === 90 ? 'bg-Pastel-blue' : 'bg-white'} outline-marine-blue border-[1.5px] border-solid ${activeBg === 9 || activeBg === 90 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue md:flex-row`}>
+          <button onClick={() => handlePrice('cart1')} className={`flex flex-col gap-10 p-3 flex-1 rounded-md ${activeBg === 9 || activeBg === 90 ? 'bg-Pastel-blue border-marine-blue' : 'bg-white border-Light-gray'} outline-marine-blue border-[1.5px] border-solid hover:border-marine-blue md:flex-row`}>
             <div>
               <img src={iconArcade} alt="Arcade icon" />
             </div>
@@ -106,7 +102,7 @@ const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
           </button>
 
           {/* cart two */}
-          <button onClick={() => handlePrice('cart2')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 12 || activeBg === 120 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 12 || activeBg === 120 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue md:flex-row`}>
+          <button onClick={() => handlePrice('cart2')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 12 || activeBg === 120 ? 'bg-Pastel-blue border-marine-blue' : 'bg-white border-Light-gray'} hover:border-marine-blue md:flex-row`}>
             <div>
               <img src={iconAdvanced} alt="Arcade icon" />
             </div>
@@ -118,7 +114,7 @@ const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
           </button>
 
           {/* cart three */}
-          <button onClick={() => handlePrice('cart3')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 15 || activeBg === 150 ? 'bg-Pastel-blue' : 'bg-white'} ${activeBg === 15 || activeBg === 150 ? 'border-marine-blue' : 'border-Light-gray'} hover:border-marine-blue md:flex-row`}>
+          <button onClick={() => handlePrice('cart3')} className={`flex flex-col gap-10 p-3 flex-1 border-[1.5px] rounded-md ${activeBg === 15 || activeBg === 150 ? 'bg-Pastel-blue border-marine-blue' : 'bg-white border-Light-gray'} hover:border-marine-blue md:flex-row`}>
             <div>
               <img src={iconPro} alt="Arcade icon" />
             </div>
@@ -145,7 +141,7 @@ const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
         {/* navigation buttons */}
         <div className="absolute md:fixed sm:!relative md:left-0 md:bottom-0 bottom-4 w-full md:bg-white md:p-4">
           <div className="flex justify-between">
-            <Link to={'/'}>
+            <Link to={'/multi-step-form'}>
               <button className="py-2 px-4 rounded-md text-Cool-gray">Go Back</button>
             </Link>
             <Link to={'/add-ons'}>

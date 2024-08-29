@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-const FourthPage = ({activeBgBtn1, activeBgBtn2, activeBgBtn3, currentPlan, yearly}) => {
+const FourthPage = ({totalPrice, yearly, currentPlan, activeBgBtn1, activeBgBtn2, activeBgBtn3}) => {
+  
   return (
     <main className="flex flex-grow md:w-full md:absolute md:top-[18%] md:left-[0%] md:bg-white md:rounded-md md:shadow-md">
       <div className="w-[80%] md:w-[90%] mx-auto mt-20 md:mt-4 relative md:static">
@@ -12,7 +14,7 @@ const FourthPage = ({activeBgBtn1, activeBgBtn2, activeBgBtn3, currentPlan, year
           <div className="bg-Pastel-blue p-4 rounded-md">
             <div className="flex justify-between">
               <p className="font-bold text-marine-blue">{currentPlan} ({`${yearly ? 'yearly' :'monthly'}`})</p>
-              <p className="font-bold text-marine-blue">${yearly ? 12 : 9}/mo</p>
+              <p className="font-bold text-marine-blue">${yearly ? 12 : 9}/{yearly ? 'yr' : 'mo'}</p>
             </div>
             <div className="mb-8">
               <Link to={'/select-plan'} className="text-Cool-gray underline text-sm">change</Link>
@@ -21,21 +23,21 @@ const FourthPage = ({activeBgBtn1, activeBgBtn2, activeBgBtn3, currentPlan, year
             <div className="flex gap-2 flex-col">
               {activeBgBtn1 ? <div className="flex justify-between mb-2">
                 <p className="text-Cool-gray text-sm">Online service</p>
-                <p className="text-marine-blue">+$1/mo</p>
+                <p className="text-marine-blue">+${yearly ? 10 : 1}/{yearly ? 'yr' : 'mo'}</p>
               </div> : ''}
               {activeBgBtn2 ? <div className="flex justify-between">
                 <p className="text-Cool-gray text-sm">Larger storage</p>
-                <p className="text-marine-blue">+2$/mo</p>
+                <p className="text-marine-blue">+{yearly ? 10 : 1}$/{yearly ? 'yr' : 'mo'}</p>
               </div> : ''}
               {activeBgBtn3 ? <div className="flex justify-between">
                 <p className="text-Cool-gray text-sm">Customizable profile</p>
-                <p className="text-marine-blue">+2$/mo</p>
+                <p className="text-marine-blue">+{yearly ? 10 : 1}$/{yearly ? 'yr' : 'mo'}</p>
               </div> : ''}
             </div>
           </div>
           <div className="flex justify-between p-4">
             <p className="text-Cool-gray text-sm">Total (per month)</p>
-            <p className="text-Purplish-blue font-bold">+12$/mo</p>
+            <p className="text-Purplish-blue font-bold">+{totalPrice}$/{yearly ? 'yr' : 'mo'}</p>
           </div>
         </section>
 
@@ -45,7 +47,7 @@ const FourthPage = ({activeBgBtn1, activeBgBtn2, activeBgBtn3, currentPlan, year
             <Link to={'/add-ons'}>
               <button className="py-2 px-4 rounded-md text-Cool-gray">Go Back</button>
             </Link>
-            <Link to={'/final-step'}>
+            <Link to={'/submition-successful'}>
               <button className="bg-marine-blue text-white py-2 px-4 rounded-md">Next Step</button>
             </Link>
           </div>
