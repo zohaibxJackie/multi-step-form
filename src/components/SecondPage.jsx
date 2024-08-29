@@ -3,7 +3,9 @@ import iconAdvanced from '../assets/images/icon-advanced.svg'
 import iconPro from '../assets/images/icon-pro.svg'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-const SecondPage = ({setPrice, setYearly}) => {
+
+const SecondPage = ({setPrice, setYearly, setCurrentPlan}) => {
+
   // monthly and yearly price variables
   const [arcadePrice, setArcadePrice] = useState(9);
   const [advancedPrice, setAdvancedPrice] = useState(12);
@@ -21,6 +23,8 @@ const SecondPage = ({setPrice, setYearly}) => {
   const handlePrice = (e) => {
     if (e === 'cart1') {
       setPrice(arcadePrice)
+      // with the help of setCurrentPlan, we will render the title on the basis of plan chosen
+      setCurrentPlan('Arcade')
       if (activeBg === 9) {
         setActiveBg(90)
       } else {
@@ -28,6 +32,7 @@ const SecondPage = ({setPrice, setYearly}) => {
       }
     }
     if (e === 'cart2') {
+      setCurrentPlan('Advanced')
       setPrice(advancedPrice);
       if (activeBg === 12) {
         setActiveBg(120)
@@ -37,6 +42,7 @@ const SecondPage = ({setPrice, setYearly}) => {
     }
     if (e === 'cart3') {
       setPrice(proPrice);
+      setCurrentPlan('Pro')
       if (activeBg === 15) {
         setActiveBg(150)
       } else {

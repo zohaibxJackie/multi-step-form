@@ -10,7 +10,13 @@ const App = () => {
   const [price, setPrice] = useState(9);
   const [activeButtonBg, setActiveButtonBg] = useState(null);
   const [yearly, setYearly] = useState(false);
+  const [currentPlan, setCurrentPlan] = useState('Arcade');
   const location = useLocation();
+
+  // These are for the third page
+  const [activeBgBtn1, setActiveBgBtn1] = useState(false);
+  const [activeBgBtn2, setActiveBgBtn2] = useState(false);
+  const [activeBgBtn3, setActiveBgBtn3] = useState(false);
   
   useEffect(() => {
 
@@ -25,14 +31,32 @@ const App = () => {
         <LeftPanel activeButtonBg={activeButtonBg} />
         <Routes>
           <Route index element={<FirstPage />} />
+
           <Route path="select-plan" 
           element={<SecondPage 
             setPrice={setPrice}
             setYearly={setYearly}
+            setCurrentPlan={setCurrentPlan}
             />} 
           />
-          <Route path="add-ons" element={<ThirdPage yearly={yearly} />} />
-          <Route path="final-step" element={<FourthPage />} />
+          <Route path="add-ons" element={<ThirdPage 
+            yearly={yearly} 
+            setActiveBgBtn1={setActiveBgBtn1}
+            setActiveBgBtn2={setActiveBgBtn2}
+            setActiveBgBtn3={setActiveBgBtn3}
+            activeBgBtn1={activeBgBtn1}
+            activeBgBtn2={activeBgBtn2}
+            activeBgBtn3={activeBgBtn3}
+            />} 
+          />
+          <Route path="final-step" element={<FourthPage 
+            activeBgBtn1={activeBgBtn1}
+            activeBgBtn2={activeBgBtn2}
+            activeBgBtn3={activeBgBtn3}
+            currentPlan={currentPlan}
+            yearly={yearly}
+            />}
+          />
         </Routes>
       </div>
     </div>

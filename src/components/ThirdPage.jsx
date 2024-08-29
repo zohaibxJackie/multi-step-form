@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const ThirdPage = ({yearly}) => {
-  const [activeBgBtn1, setActiveBgBtn1] = useState(false);
-  const [activeBgBtn2, setActiveBgBtn2] = useState(false);
-  const [activeBgBtn3, setActiveBgBtn3] = useState(false);
+const ThirdPage = (props) => {
+  const {yearly, activeBgBtn1, activeBgBtn2, activeBgBtn3, setActiveBgBtn1, setActiveBgBtn2, setActiveBgBtn3} = props;
 
   const boxCheck = (btn) => {
     if (btn === 'chk1') {
