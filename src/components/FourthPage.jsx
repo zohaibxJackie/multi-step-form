@@ -48,7 +48,7 @@ const FourthPage = ({totalPrice, yearly, currentPlan, activeBgBtn1, activeBgBtn2
               <button className="py-2 px-4 rounded-md text-Cool-gray">Go Back</button>
             </Link>
             <Link to={'/submition-successful'}>
-              <button className="bg-marine-blue text-white py-2 px-4 rounded-md">Next Step</button>
+              <button className="bg-marine-blue text-white py-2 px-4 rounded-md">Finish</button>
             </Link>
           </div>
         </div>
